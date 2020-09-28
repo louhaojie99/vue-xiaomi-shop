@@ -7,6 +7,9 @@
       <van-tab title="电视"></van-tab>
       <van-tab title="笔记本"></van-tab>
       <van-tab title="家电"></van-tab>
+      <!-- <van-tab title="">
+        <van-popup v-model="show" position="top" :style="{ height: '30%' }" />
+      </van-tab> -->
     </van-tabs>
     <!-- <router-view></router-view> -->
   </div>
@@ -18,6 +21,7 @@ export default {
   data() {
     return {
       active: "",
+      show: "",
     };
   },
   computed: {},

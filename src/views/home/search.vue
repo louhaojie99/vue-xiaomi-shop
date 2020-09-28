@@ -1,8 +1,4 @@
-<template>
-  <div class="">
-    11111111
-  </div>
-</template>
+<template> </template>
 
 <script>
 export default {

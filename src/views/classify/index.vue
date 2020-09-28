@@ -55,10 +55,42 @@
           <div class="enter">进入手机频道 &gt;</div>
         </div>
 
-        <van-image
-          v-if="activeIndex === 1"
-          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/9da143d6e1bbce78cda92d4be76bf4e5.jpg?f=webp&w=750&h=300&bg=FFFFFF"
-        />
+        <!--  -->
+        <div v-if="activeIndex === 1">
+          <van-image
+            src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/9da143d6e1bbce78cda92d4be76bf4e5.jpg?f=webp&w=750&h=300&bg=FFFFFF"
+          />
+          <h5>小米数字系列</h5>
+          <van-row>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+          </van-row>
+          <van-row>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+          </van-row>
+          <div class="enter">进入手机频道 &gt;</div>
+        </div>
       </template>
     </van-tree-select>
 
