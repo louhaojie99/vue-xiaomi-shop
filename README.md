@@ -68,4 +68,5 @@ requset.js  ...
 # axios挂到原型上，全局使用
 import request from "./utils/request";
 Vue.prototype.$http = request;
+123456
 ```
