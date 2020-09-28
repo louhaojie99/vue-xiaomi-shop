@@ -50,6 +50,18 @@ const routes = [
     name: "Mine",
     component: () => import("../views/mine/index.vue"),
   },
+  // 登录
+  {
+    path: "/login",
+    name: "Login",
+    component: () => import("../views/user/Login.vue"),
+  },
+  // 注册
+  {
+    path: "/register",
+    name: "Register",
+    component: () => import("../views/user/Register.vue"),
+  },
 ];
 
 const router = new VueRouter({

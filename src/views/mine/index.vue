@@ -7,8 +7,8 @@
           <img src="/images/avatar.76a.png" alt="" />
         </div>
         <div class="login">
-          <a href="javascript:;">登录</a>
-          <a href="javascript:;">/注册</a>
+          <a href="javascript:;" v-on:click="login">登录</a>
+          <a href="javascript:;" v-on:click="register">/注册</a>
         </div>
       </div>
     </header>
@@ -55,7 +55,21 @@ export default {
   },
   created() {},
   mounted() {},
-  methods: {},
+  methods: {
+    // 点击跳转到登录页
+    login() {
+      console.log("点击了");
+      this.$router.push({
+        path: "/login",
+      });
+    },
+    // 点击跳转到注册页
+    register() {
+      this.$router.push({
+        path: "/register",
+      });
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
