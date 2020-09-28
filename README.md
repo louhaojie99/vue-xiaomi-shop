@@ -20,13 +20,13 @@ https://blog.csdn.net/Jasons_xie/article/details/89331473
 # 安装依赖
 npm i -S amfe-flexible
 npm install postcss-pxtorem --save-dev
-       
+
 # viewport设置
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-       
-# main.js主入口引入	
+
+# main.js主入口引入
 import 'amfe-flexible'; //引入rem自适应
-			
+
 # 在vue-cli3下,根目录中的 vue.config.js (没有，就新建一个)
 module.exports = {
   css: {
@@ -52,5 +52,20 @@ import 'vant/lib/index.css';
 Vue.use(Vant);
 
 # 搭建一级路由
-```
+写静态资源
 
+
+# 安装js-cookes
+npm i js-cookie   # Coookie管理
+npm i compression-webpack-plugin
+
+# 安装axios
+npm i axios --save
+
+# axios拦截器
+requset.js  ...
+
+# axios挂到原型上，全局使用
+import request from "./utils/request";
+Vue.prototype.$http = request;
+```
