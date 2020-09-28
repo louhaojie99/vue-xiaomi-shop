@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    搜索页 搜索页搜索页
+    11111111
   </div>
 </template>
 
