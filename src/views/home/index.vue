@@ -1,7 +1,8 @@
 <template>
   <div class="">
-    主页
-
+    <van-search v-model="value" placeholder="搜索关商品名字" />
+    <!-- 导航 -->
+    <NavBar></NavBar>
     <!-- 页脚 -->
     <FooterBar></FooterBar>
   </div>
@@ -9,6 +10,7 @@
 
 <script>
 import FooterBar from "../../components/FooterBar";
+import NavBar from "../../components/NavBar";
 
 export default {
   name: "",
@@ -18,6 +20,7 @@ export default {
   computed: {},
   components: {
     FooterBar,
+    NavBar,
   },
   created() {},
   mounted() {},

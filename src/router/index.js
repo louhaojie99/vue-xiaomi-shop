@@ -5,13 +5,25 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    redirect: "/home",
+    redirect: "/home/recommend",
   },
   // 首页
   {
     path: "/home",
     name: "Home",
     component: () => import("../views/home/index.vue"),
+    children: [
+      {
+        path: "recommend",
+        name: "Recommend",
+        component: () => import("../views/home/recommend.vue"),
+      },
+      {
+        path: "phone",
+        name: "Phone",
+        component: () => import("../views/home/phone.vue"),
+      },
+    ],
   },
   // 分类
   {
