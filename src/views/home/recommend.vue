@@ -65,20 +65,24 @@
           src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/53e729d30746033a042d8ae9399553a7.jpg?thumb=1&w=344&h=280"
           alt=""
         />
-        <b>Redmi Note 8 Pro</b>
-        <p>6400万全场景四摄</p>
-        <p>￥1099起</p>
-        <van-button type="danger">立即购买</van-button>
+        <div class="txt">
+          <b>Redmi Note 8 Pro</b>
+          <p>6400万全场景四摄</p>
+          <p>￥1099起</p>
+          <van-button type="danger">立即购买</van-button>
+        </div>
       </van-col>
       <van-col span="12">
         <img
           src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/8025107813883a20d3f2d956ad80ea38.jpg?thumb=1&w=344&h=280"
           alt=""
         />
-        <b>Redmi Note 8 Pro</b>
-        <p>6400万全场景四摄</p>
-        <p>￥1099起</p>
-        <van-button type="danger">立即购买</van-button>
+        <div class="txt">
+          <b>Redmi Note 8 Pro</b>
+          <p>6400万全场景四摄</p>
+          <p>￥1099起</p>
+          <van-button type="danger">立即购买</van-button>
+        </div>
       </van-col>
     </van-row>
     <van-row>
@@ -87,42 +91,51 @@
           src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/53e729d30746033a042d8ae9399553a7.jpg?thumb=1&w=344&h=280"
           alt=""
         />
-        <b>Redmi Note 8 Pro</b>
-        <p>6400万全场景四摄</p>
-        <p>￥1099起</p>
-        <van-button type="danger">立即购买</van-button>
+        <div class="txt">
+          <b>Redmi Note 8 Pro</b>
+          <p>6400万全场景四摄</p>
+          <p>￥1099起</p>
+          <van-button type="danger">立即购买</van-button>
+        </div>
       </van-col>
       <van-col span="12">
         <img
           src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/8025107813883a20d3f2d956ad80ea38.jpg?thumb=1&w=344&h=280"
           alt=""
         />
-        <b>Redmi Note 8 Pro</b>
-        <p>6400万全场景四摄</p>
-        <p>￥1099起</p>
-        <van-button type="danger">立即购买</van-button>
+        <div class="txt">
+          <b>Redmi Note 8 Pro</b>
+          <p>6400万全场景四摄</p>
+          <p>￥1099起</p>
+          <van-button type="danger">立即购买</van-button>
+        </div>
       </van-col>
     </van-row>
+
     <van-row>
       <van-col span="12">
         <img
           src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/53e729d30746033a042d8ae9399553a7.jpg?thumb=1&w=344&h=280"
           alt=""
         />
-        <b>Redmi Note 8 Pro</b>
-        <p>6400万全场景四摄</p>
-        <p>￥1099起</p>
-        <van-button type="danger">立即购买</van-button>
+        <div class="txt">
+          <b>Redmi Note 8 Pro</b>
+          <p>6400万全场景四摄</p>
+          <p>￥1099起</p>
+          <van-button type="danger">立即购买</van-button>
+        </div>
       </van-col>
       <van-col span="12">
         <img
           src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/8025107813883a20d3f2d956ad80ea38.jpg?thumb=1&w=344&h=280"
           alt=""
         />
-        <b>Redmi Note 8 Pro</b>
-        <p>6400万全场景四摄</p>
-        <p>￥1099起</p>
-        <van-button type="danger">立即购买</van-button>
+        <div class="txt">
+          <b>Redmi Note 8 Pro</b>
+          <p>6400万全场景四摄</p>
+          <p>￥1099起</p>
+          <van-button type="danger">立即购买</van-button>
+        </div>
       </van-col>
     </van-row>
   </div>
@@ -154,14 +167,7 @@ export default {
 img {
   width: 100%;
 }
-/* 
-van-row van-col {
-  width: 4rem;
-  background-color: aqua;
+.txt {
+  margin-left: 1.066667rem;
 }
-van-row van-col {
-  width: 5rem;
-  height: 4rem;
-  background-color: brown;
-} */
 </style>

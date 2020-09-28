@@ -12,8 +12,6 @@
       v-model="active"
       active-color="#ff6700"
       inactive-color="#999999"
-      placeholder
-      fixed
     >
       <van-tabbar-item to="/home" icon="wap-home">首页</van-tabbar-item>
       <van-tabbar-item to="/classify" icon="search" dot>分类</van-tabbar-item>

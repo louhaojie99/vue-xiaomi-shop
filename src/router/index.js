@@ -7,6 +7,12 @@ const routes = [
     path: "/",
     redirect: "/home",
   },
+  {
+    path: "/search",
+    name: "Search",
+    component: () => import("../views/home/search.vue"),
+  },
+
   // 首页
   {
     path: "/home",
