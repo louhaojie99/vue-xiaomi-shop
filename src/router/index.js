@@ -5,13 +5,14 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    redirect: "/home/recommend",
+    redirect: "/home",
   },
   // 首页
   {
     path: "/home",
     name: "Home",
     component: () => import("../views/home/index.vue"),
+    redirect: "/home/recommend",
     children: [
       {
         path: "recommend",

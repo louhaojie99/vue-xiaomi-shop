@@ -8,6 +8,7 @@
       <van-tab title="笔记本"></van-tab>
       <van-tab title="家电"></van-tab>
     </van-tabs>
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 
@@ -15,7 +16,9 @@
 export default {
   name: "NavBar",
   data() {
-    return {};
+    return {
+      active: "",
+    };
   },
   computed: {},
   components: {},

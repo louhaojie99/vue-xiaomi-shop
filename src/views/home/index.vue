@@ -15,7 +15,9 @@ import NavBar from "../../components/NavBar";
 export default {
   name: "",
   data() {
-    return {};
+    return {
+      value: "",
+    };
   },
   computed: {},
   components: {
