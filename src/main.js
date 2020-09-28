@@ -10,6 +10,10 @@ import store from "./store";
 import Vant from "vant";
 import "vant/lib/index.css";
 
+// axios挂到原型上，全局使用
+import request from "./utils/request";
+Vue.prototype.$http = request;
+
 Vue.config.productionTip = false;
 Vue.use(Vant); // 全局使用Vant
 

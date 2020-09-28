@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import FooterBar from "../../components/FooterBar";
 
 export default {
@@ -53,7 +54,19 @@ export default {
   components: {
     FooterBar,
   },
-  created() {},
+  created() {
+    // console.log("执行了");
+    // axios
+    //   .post("http://localhost:3009/api/v1/auth/reg", {
+    //     userName: "louhaojie99",
+    //     password: "1234567890",
+    //   })
+    //   .then((res) => {
+    //     console.log("执行了");
+    //     console.log(res);
+    //   });
+  },
+
   mounted() {},
   methods: {
     // 点击跳转到登录页
