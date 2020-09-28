@@ -8,16 +8,16 @@
     </van-swipe>
     <!--  -->
     <van-grid :column-num="5">
-      <van-grid-item icon="photo-o" text="小米秒杀" />
-      <van-grid-item icon="photo-o" text="小米众筹" />
-      <van-grid-item icon="photo-o" text="全芯超越" />
-      <van-grid-item icon="photo-o" text="以旧换新" />
-      <van-grid-item icon="photo-o" text="超值特卖" />
-      <van-grid-item icon="photo-o" text="小米秒杀" />
-      <van-grid-item icon="photo-o" text="小米众筹" />
-      <van-grid-item icon="photo-o" text="全芯超越" />
-      <van-grid-item icon="photo-o" text="以旧换新" />
-      <van-grid-item icon="photo-o" text="超值特卖" />
+      <van-grid-item icon="hot-o" text="小米秒杀" />
+      <van-grid-item icon="hot-o" text="小米众筹" />
+      <van-grid-item icon="hot-o" text="全芯超越" />
+      <van-grid-item icon="hot-o" text="以旧换新" />
+      <van-grid-item icon="hot-o" text="超值特卖" />
+      <van-grid-item icon="hot-o" text="小米秒杀" />
+      <van-grid-item icon="hot-o" text="小米众筹" />
+      <van-grid-item icon="hot-o" text="全芯超越" />
+      <van-grid-item icon="hot-o" text="以旧换新" />
+      <van-grid-item icon="hot-o" text="超值特卖" />
     </van-grid>
 
     <van-row>

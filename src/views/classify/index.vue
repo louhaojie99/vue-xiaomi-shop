@@ -1,6 +1,17 @@
 <template>
   <div class="classify">
-    分类
+    <van-nav-bar
+      title="分类"
+      left-text="返回"
+      left-arrow
+      @click-left="onClickLeft"
+      @click-right="onClickSearch"
+      class="cartnav"
+    >
+      <template #right class="bbb">
+        <van-icon class="bbb" name="search" size="18" />
+      </template>
+    </van-nav-bar>
     <van-tree-select
       :items="items"
       :active-id.sync="activeId"
@@ -91,7 +102,14 @@ export default {
   },
   created() {},
   mounted() {},
-  methods: {},
+  methods: {
+    onClickLeft() {
+      this.$router.push("/home");
+    },
+    onClickSearch() {
+      this.$router.push("/search");
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

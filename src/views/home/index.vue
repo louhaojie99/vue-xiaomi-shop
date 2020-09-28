@@ -14,7 +14,9 @@
         @click="search"
       />
     </div>
-    <div class="login"></div>
+    <div class="login">
+      <van-icon name="user-o" size="20px" @click="login" />
+    </div>
     <!-- 导航 -->
     <NavBar></NavBar>
     <!-- 页脚 -->
@@ -44,6 +46,9 @@ export default {
     search() {
       this.$router.push("/search");
     },
+    login() {
+      this.$router.push("/login");
+    },
   },
 };
 </script>
@@ -56,5 +61,14 @@ export default {
 }
 .logo img {
   width: 100%;
+}
+
+.search {
+  width: 9.333333rem;
+}
+.login {
+  float: right;
+  margin-top: -1.066667rem;
+  margin-right: 0.266667rem;
 }
 </style>
