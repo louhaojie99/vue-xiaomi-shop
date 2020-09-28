@@ -20,6 +20,21 @@
         placeholder="密码"
         :rules="[{ required: true, message: '请填写密码' }]"
       />
+
+      <van-field
+        v-model="password"
+        type="password"
+        name="确认密码"
+        label="确认密码"
+        placeholder="确认密码"
+        :rules="[{ required: true, message: '请填写密码' }]"
+      />
+      <a
+        href="javascript:;"
+        style="margin-left:230px;text-decoration: underline;"
+        @click="goRegister"
+        >没有账号，去注册</a
+      >
       <div style="margin: 16px;">
         <van-button round block type="info" native-type="submit">
           提交
@@ -45,6 +60,9 @@ export default {
   methods: {
     onSubmit(values) {
       console.log("submit", values);
+    },
+    goRegister() {
+      this.$router.push("/register");
     },
   },
 };

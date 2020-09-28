@@ -43,8 +43,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.active {
-  background: red;
-  color: red;
+.bbb {
+  color: orange;
 }
 </style>

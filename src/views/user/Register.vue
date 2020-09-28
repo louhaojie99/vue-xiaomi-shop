@@ -20,6 +20,12 @@
         placeholder="密码"
         :rules="[{ required: true, message: '请填写密码' }]"
       />
+      <a
+        href="javascript:;"
+        style="margin-left:230px;text-decoration: underline;"
+        @click="goLogin"
+        >已注册，去登录</a
+      >
       <div style="margin: 16px;">
         <van-button round block type="info" native-type="submit">
           提交
@@ -45,6 +51,9 @@ export default {
   methods: {
     onSubmit(values) {
       console.log("submit", values);
+    },
+    goLogin() {
+      this.$router.push("/login");
     },
   },
 };

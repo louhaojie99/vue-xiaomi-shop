@@ -23,17 +23,86 @@
         title="登陆后享受更多优惠"
         is-link
         value="去登陆"
-        click="goLogin"
+        @click="goLogin"
       />
+      <!-- 商品列表 -->
+      <div class="cartprolist">
+        <div class="item">
+          <div class="chckbox">
+            <input type="checkbox" />
+          </div>
+          <div class="proimg">
+            <img
+              src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1597145894.51396359.jpg"
+              alt=""
+            />
+          </div>
+          <div class="proinfo">
+            <div>
+              <div class="name">小米10至尊纪念版 8GB+256GB 陶瓷黑</div>
+              <div class="price">售价：5599元</div>
+            </div>
+            <div>
+              <input type="button" value="-" />
+              <span class="pricee">1</span>
+              <input type="button" value="+" />
+            </div>
+          </div>
+          <div class="del">
+            <button>删除</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="chckbox">
+            <input type="checkbox" />
+          </div>
+          <div class="proimg">
+            <img
+              src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1597145894.51396359.jpg"
+              alt=""
+            />
+          </div>
+          <div class="proinfo">
+            <div>
+              <div class="name">小米10至尊纪念版 8GB+256GB 陶瓷黑</div>
+              <div class="price">售价：5599元</div>
+            </div>
+            <div>
+              <input type="button" value="-" />
+              <span class="pricee">1</span>
+              <input type="button" value="+" />
+            </div>
+          </div>
+          <div class="del">
+            <button>删除</button>
+          </div>
+        </div>
+      </div>
+      <!-- end -->
       <div class="cart-bom">
         <van-icon class="i" name="cart-o" />
         <span class="span">购物车还是空的</span>
         <em class="em" @click="goProList">去逛逛</em>
       </div>
     </div>
-
+    <!-- CartBar -->
+    <div class="cartbar">
+      <div class="d1">
+        <div>共1件 <span style="font-weight: bold;">金额：</span></div>
+        <div>
+          <span style="color:#ff6700;font-weight: bold;">3799</span>
+          元
+        </div>
+      </div>
+      <div class="d2">
+        继续购物
+      </div>
+      <div class="d3">
+        去结算
+      </div>
+    </div>
     <!-- 页脚 -->
-    <FooterBar></FooterBar>
+    <!-- <FooterBar></FooterBar> -->
   </div>
 </template>
 
@@ -53,13 +122,14 @@ export default {
   mounted() {},
   methods: {
     onClickLeft() {
-      console.log("返回");
+      this.$router.push("/home");
     },
     onClickSearch() {
-      console.log("搜索");
+      this.$router.push("/search");
     },
     goLogin() {
       console.log(1);
+      this.$router.push("/login");
     },
     // 点击去逛逛跳转到首页
     goProList() {
@@ -102,6 +172,72 @@ export default {
       border: 1px solid #ccc;
       font-style: normal;
     }
+  }
+}
+
+// 商品列表样式
+.cartprolist {
+  min-height: 3.146667rem;
+
+  overflow: hidden;
+  .item {
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    border: 1px solid #f1f1f1;
+    .chckbox {
+      width: 0.84rem;
+      text-align: center;
+    }
+    .proimg {
+      img {
+        width: 2.666667rem;
+      }
+    }
+    .proinfo {
+      .pricee {
+        display: inline-block;
+        width: 0.6rem;
+        text-align: center;
+        border: 2px solid #ccc;
+      }
+    }
+    .del {
+      button {
+        width: 50px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+.cartbar {
+  width: 100%;
+  height: 1.386667rem;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #cccccc;
+  position: fixed;
+  bottom: 0;
+  div {
+    flex: 1;
+  }
+  .d1 {
+    height: 1.386667rem;
+    text-align: center;
+    line-height: 0.7rem;
+  }
+  .d2 {
+    height: 1.386667rem;
+    line-height: 1.386667rem;
+    text-align: center;
+    background-color: #f4f4f4;
+  }
+  .d3 {
+    height: 1.386667rem;
+    line-height: 1.386667rem;
+    text-align: center;
+    background-color: #ff6700;
   }
 }
 </style>
