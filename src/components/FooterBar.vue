@@ -31,7 +31,9 @@
 export default {
   name: "FooterBar",
   data() {
-    return {};
+    return {
+      active: 0,
+    };
   },
   computed: {},
   components: {},
