@@ -4,6 +4,8 @@
   </div>
 </template>
 
+<script></script>
+
 <style lang="scss">
 #app {
   font-size: 0.373333rem;

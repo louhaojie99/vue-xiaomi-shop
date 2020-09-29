@@ -1,41 +1,48 @@
 <template>
   <div class="mine">
-    <!-- 头部 -->
-    <header class="header">
-      <div class="user-center">
-        <div class="logo">
-          <img src="/images/avatar.76a.png" alt="" />
+    <div>
+      <!-- 头部 -->
+      <header class="header">
+        <div class="user-center">
+          <div class="logo">
+            <img src="/images/avatar.76a.png" alt="" />
+          </div>
+          <div class="login">
+            <a href="javascript:;" v-on:click="login">登录</a>
+            <a href="javascript:;" v-on:click="register">/注册</a>
+          </div>
         </div>
-        <div class="login">
-          <a href="javascript:;" v-on:click="login">登录</a>
-          <a href="javascript:;" v-on:click="register">/注册</a>
+      </header>
+      <van-cell title="我的订单" is-link value="全部订单" />
+      <div class="service">
+        <div>
+          <van-icon name="balance-pay" />
+          <span>
+            待付款
+          </span>
+        </div>
+        <div>
+          <van-icon name="logistics" />
+          <span>
+            待收货
+          </span>
+        </div>
+        <div>
+          <van-icon name="flag-o" />
+          <span>
+            退换修
+          </span>
         </div>
       </div>
-    </header>
-    <van-cell title="我的订单" is-link value="全部订单" />
-    <div class="service">
-      <div>
-        <van-icon name="balance-pay" />
-        <span>
-          待付款
-        </span>
-      </div>
-      <div>
-        <van-icon name="logistics" />
-        <span>
-          待收货
-        </span>
-      </div>
-      <div>
-        <van-icon name="flag-o" />
-        <span>
-          退换修
-        </span>
-      </div>
-    </div>
-    <!-- 设置 -->
-    <van-cell class="setting" title="设置" icon="setting-o" />
 
+      <!-- 设置 -->
+      <van-cell
+        class="setting"
+        title="设置"
+        icon="setting-o"
+        @click="toSetting"
+      />
+    </div>
     <!-- 页脚 -->
     <FooterBar></FooterBar>
   </div>
@@ -44,6 +51,7 @@
 <script>
 import axios from "axios";
 import FooterBar from "../../components/FooterBar";
+import { getToken } from "../../utils/auth";
 
 export default {
   name: "",
@@ -55,16 +63,11 @@ export default {
     FooterBar,
   },
   created() {
-    // console.log("执行了");
-    // axios
-    //   .post("http://localhost:3009/api/v1/auth/reg", {
-    //     userName: "louhaojie99",
-    //     password: "1234567890",
-    //   })
-    //   .then((res) => {
-    //     console.log("执行了");
-    //     console.log(res);
-    //   });
+    axios.get("/api/v1/users/info").then((res) => {
+      console.log("执行了");
+      console.log(res);
+    });
+    console.log(2);
   },
 
   mounted() {},
@@ -82,6 +85,8 @@ export default {
         path: "/register",
       });
     },
+    // 点击跳转到设置页
+    toSetting() {},
   },
 };
 </script>

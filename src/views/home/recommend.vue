@@ -144,6 +144,7 @@
 <script>
 import Vue from "vue";
 import { Lazyload } from "vant";
+import axios from "axios";
 
 Vue.use(Lazyload);
 export default {

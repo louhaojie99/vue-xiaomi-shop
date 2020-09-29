@@ -1,5 +1,5 @@
 <template>
-  <div class="">修改密码页面</div>
+  <div class="setting">修改密码页面</div>
 </template>
 
 <script>
@@ -15,4 +15,8 @@ export default {
   methods: {},
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.setting {
+  font-size: 20px;
+}
+</style>

@@ -56,21 +56,21 @@ export default {
     // 用户登录
     onSubmit(values) {
       const { username, password } = values;
-      axios
+      this.$http
         .post("/api/v1/auth/login", {
           userName: username,
           password: password,
         })
         .then((res) => {
-          console.log(res);
-          if (res.data.code == "success") {
+          console.log(res.code);
+          if (res.code == "success") {
             Toast.success("登录成功");
             setToken(res.data.token);
             this.$router.push({
               path: "/home",
             });
           } else {
-            Toast.fail(res.data.message);
+            Toast.fail(res.message);
           }
         });
     },
