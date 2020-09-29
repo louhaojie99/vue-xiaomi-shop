@@ -69,6 +69,12 @@ const routes = [
     name: "Register",
     component: () => import("../views/user/Register.vue"),
   },
+  // 设置
+  {
+    path: "/setting",
+    name: "Setting",
+    component: () => import("../views/user/Setting.vue"),
+  },
 ];
 
 const router = new VueRouter({

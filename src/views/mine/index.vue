@@ -36,11 +36,18 @@
       </div>
 
       <!-- 设置 -->
+      <van-cell icon="gem" title="会员中心" is-link />
+      <van-cell icon="vip-card" title="我的优惠" is-link />
+      <van-cell icon="like" title="服务中心" is-link />
+      <van-cell icon="gift" title="小米之家" is-link />
+      <van-cell icon="coupon" title="我的F码" is-link />
+      <van-cell icon="bag" title="礼物码兑换" is-link />
       <van-cell
         class="setting"
         title="设置"
-        icon="setting-o"
+        icon="setting"
         @click="toSetting"
+        is-link
       />
     </div>
     <!-- 页脚 -->
@@ -63,7 +70,7 @@ export default {
     FooterBar,
   },
   created() {
-    axios.get("/api/v1/users/info").then((res) => {
+    this.$http.get("/api/v1/users/info").then((res) => {
       console.log("执行了");
       console.log(res);
     });
@@ -86,7 +93,11 @@ export default {
       });
     },
     // 点击跳转到设置页
-    toSetting() {},
+    toSetting() {
+      this.$router.push({
+        path: "/setting",
+      });
+    },
   },
 };
 </script>
@@ -149,5 +160,9 @@ export default {
   border-top: 0.0233rem solid #f1f1f1;
   border-bottom: 0.0233rem solid #f1f1f1;
   font-size: 0.42rem;
+}
+.search-icon {
+  font-size: 16px;
+  line-height: inherit;
 }
 </style>

@@ -65,7 +65,7 @@ export default {
           console.log(res.code);
           if (res.code == "success") {
             Toast.success("登录成功");
-            setToken(res.data.token);
+            setToken(res.token);
             this.$router.push({
               path: "/home",
             });
