@@ -82,6 +82,12 @@ const routes = [
     name: "Setting",
     component: () => import("../views/user/Setting.vue"),
   },
+  // 修改用户信息
+  {
+    path: "/changeuser",
+    name: "Changeuser",
+    component: () => import("../views/user/Changeuser.vue"),
+  },
 ];
 
 const router = new VueRouter({

@@ -4,6 +4,7 @@
       <h3 class="title">小米账号注册</h3>
       <img class="logo" src="/images/logo.png" alt="" />
     </div>
+
     <van-form @submit="onSubmit">
       <van-field
         v-model="username"
@@ -28,6 +29,7 @@
         placeholder="昵称"
         :rules="[{ required: true, message: '请填写昵称' }]"
       />
+
       <a
         href="javascript:;"
         style="margin-left:230px;text-decoration: underline;"
@@ -36,7 +38,7 @@
       >
       <div style="margin: 16px;">
         <van-button round block type="info" native-type="submit">
-          提交
+          注册
         </van-button>
       </div>
     </van-form>

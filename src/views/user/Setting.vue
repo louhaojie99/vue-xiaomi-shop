@@ -25,23 +25,23 @@
       <img class="logo" src="/images/logo.png" alt="" />
       <van-form @submit="onSubmit">
         <van-field
-          v-model="username"
-          name="旧密码"
+          v-model="oldpwd"
+          name="oldPassword"
           label="旧密码"
           placeholder="旧密码"
           :rules="[{ required: true, message: '请填写旧密码' }]"
         />
         <van-field
-          v-model="password"
+          v-model="newpwd"
           type="password"
-          name="新密码"
+          name=" password"
           label="新密码"
           placeholder="新密码"
           :rules="[{ required: true, message: '请填写新密码' }]"
         />
         <div style="margin: 16px;">
           <van-button round block type="info" native-type="submit">
-            提交
+            修改密码
           </van-button>
         </div>
       </van-form>
@@ -57,8 +57,8 @@ export default {
   data() {
     return {
       isShow: true,
-      username: "",
-      password: "",
+      oldpwd: "",
+      newpwd: "",
     };
   },
   computed: {},
@@ -84,7 +84,24 @@ export default {
     },
     // 修改密码走这里
     onSubmit(values) {
-      console.log("submit", values);
+      // console.log("submit", values);
+      this.$http
+        .post(
+          "/api/v1/users/change_pwd",
+          {
+            oldPassword: this.oldpwd,
+            password: this.newpwd,
+          }
+          // params: values
+        )
+        .then((res) => {
+          // console.log(res);
+          if (res.code == "success") {
+            Toast.success(res.message);
+          } else {
+            Toast.fail(res.message);
+          }
+        });
     },
   },
 };

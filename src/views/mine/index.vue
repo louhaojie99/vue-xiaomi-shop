@@ -4,12 +4,15 @@
       <!-- 头部 -->
       <header class="header">
         <div class="user-center">
-          <div class="logo">
+          <div class="logo" @click="changeUser">
             <img src="/images/avatar.76a.png" alt="" />
           </div>
           <div class="login">
-            <a href="javascript:;" v-on:click="login">登录</a>
-            <a href="javascript:;" v-on:click="register">/注册</a>
+            <div v-if="isShow">
+              <a href="javascript:;" v-on:click="login">登录</a>
+              <a href="javascript:;" v-on:click="register">/注册</a>
+            </div>
+            <div v-else class="nickName">用户名：{{ nickName }}</div>
           </div>
         </div>
       </header>
@@ -63,18 +66,20 @@ import { getToken } from "../../utils/auth";
 export default {
   name: "",
   data() {
-    return {};
+    return {
+      nickName: "",
+      isShow: "",
+    };
   },
   computed: {},
   components: {
     FooterBar,
   },
   created() {
-    this.$http.get("/api/v1/users/info").then((res) => {
-      console.log("执行了");
-      console.log(res);
-    });
-    console.log(2);
+    this.getUserInfo();
+    if (!getToken) {
+      this.isShow = true;
+    }
   },
 
   mounted() {},
@@ -97,6 +102,26 @@ export default {
       this.$router.push({
         path: "/setting",
       });
+    },
+    // 获取用户信息
+    getUserInfo() {
+      this.$http.get("/api/v1/users/info").then((res) => {
+        // console.log(res);
+        this.nickName = res.nickName;
+        // console.log(res.nickName);
+      });
+    },
+    // 修改用户信息
+    changeUser() {
+      /* this.$http
+        .post("/api/v1/users/change_info", {
+          nickName: this.nickName,
+          acatar: "",
+        })
+        .then((res) => {
+          console.log(res);
+        }); */
+      this.$router.push("/changeuser");
     },
   },
 };
@@ -164,5 +189,9 @@ export default {
 .search-icon {
   font-size: 16px;
   line-height: inherit;
+}
+.nickName {
+  font-size: 0.45rem;
+  color: #fff;
 }
 </style>
