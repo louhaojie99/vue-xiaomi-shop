@@ -60,32 +60,20 @@
     </van-row>
 
     <van-row>
-      <van-col span="12">
-        <img
-          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/53e729d30746033a042d8ae9399553a7.jpg?thumb=1&w=344&h=280"
-          alt=""
-        />
+      <van-col span="12" v-for="item in productlist" :key="item._id">
+        <img :src="item.coverImg" alt="" />
         <div class="txt">
           <b>Redmi Note 8 Pro</b>
           <p>6400万全场景四摄</p>
-          <p>￥1099起</p>
-          <van-button type="danger">立即购买</van-button>
-        </div>
-      </van-col>
-      <van-col span="12">
-        <img
-          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/8025107813883a20d3f2d956ad80ea38.jpg?thumb=1&w=344&h=280"
-          alt=""
-        />
-        <div class="txt">
-          <b>Redmi Note 8 Pro</b>
-          <p>6400万全场景四摄</p>
-          <p>￥1099起</p>
-          <van-button type="danger">立即购买</van-button>
+          <!-- <p>{{ item.name }}</p> -->
+          <p>￥{{ item.price }}起</p>
+          <van-button type="danger" @click="goDetail(item)"
+            >立即购买</van-button
+          >
         </div>
       </van-col>
     </van-row>
-    <van-row>
+    <!--  <van-row>
       <van-col span="12">
         <img
           src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/53e729d30746033a042d8ae9399553a7.jpg?thumb=1&w=344&h=280"
@@ -137,7 +125,7 @@
           <van-button type="danger">立即购买</van-button>
         </div>
       </van-col>
-    </van-row>
+    </van-row> -->
   </div>
 </template>
 
@@ -151,13 +139,14 @@ export default {
   data() {
     return {
       bannerlist: [],
+      productlist: [],
     };
   },
   computed: {},
   components: {},
   created() {
     this.getBanner();
-    // this.getProduct();
+    this.getProduct();
   },
   mounted() {},
   methods: {
@@ -168,11 +157,22 @@ export default {
         // console.log(bannerlist);
       });
     },
-    /* getProduct() {
-      axios.get("api/v1/admin/products").then((res) => {
-        console.log(res);
+    // 获取商品
+    getProduct() {
+      axios.get("/api/v1/products").then((res) => {
+        // console.log(res);
+        this.productlist = res.data.products;
+        // console.log(this.productlist);
       });
-    }, */
+    },
+    //
+    goDetail(item) {
+      console.log(item);
+      // this.$router.push({ name: "detail", query: item });
+      /*  axios.get("/api/v1/products/:id").then((res) => {
+        console.log(res);
+      }); */
+    },
   },
 };
 </script>

@@ -1,13 +1,22 @@
 <template>
-  <div class="search">
-    <div>
-      <van-icon class="i" name="arrow-left" @click="onClickLeft" />
+  <div id="search">
+    <div class="search">
+      <div>
+        <van-icon class="i" name="arrow-left" @click="onClickLeft" />
+      </div>
+      <div>
+        <input class="serach" type="search" placeholder="搜索商品名称" />
+      </div>
+      <div>
+        <van-icon class="i" name="search" />
+      </div>
     </div>
     <div>
-      <input class="serach" type="search" placeholder="搜索商品名称" />
-    </div>
-    <div>
-      <van-icon class="i" name="search" />
+      <h6>搜索发现</h6>
+      <van-dropdown-menu>
+        <van-dropdown-item v-model="value1" :options="option1" />
+        <van-dropdown-item v-model="value2" :options="option2" />
+      </van-dropdown-menu>
     </div>
   </div>
 </template>
@@ -16,7 +25,24 @@
 export default {
   name: "search",
   data() {
-    return {};
+    return {
+      value1: 0,
+      value2: "a",
+      option1: [
+        { text: "全部商品", value: 0 },
+        { text: "新款商品", value: 1 },
+        { text: "活动商品", value: 2 },
+        { text: "小米", value: 3 },
+        { text: "华为", value: 4 },
+      ],
+      option2: [
+        { text: "默认排序", value: "a" },
+        { text: "好评排序", value: "b" },
+        { text: "销量排序", value: "c" },
+        { text: "价格排序", value: "d" },
+        { text: "城市搜索", value: "e" },
+      ],
+    };
   },
   computed: {},
   components: {},
@@ -66,5 +92,9 @@ export default {
       line-height: 1.1rem;
     }
   }
+}
+img {
+  width: 80%;
+  border-radius: 0.266667rem;
 }
 </style>
