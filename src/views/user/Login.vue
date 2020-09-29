@@ -7,7 +7,7 @@
     <van-form @submit="onSubmit">
       <van-field
         v-model="username"
-        name="用户名"
+        name="username"
         label="用户名"
         placeholder="用户名"
         :rules="[{ required: true, message: '请填写用户名' }]"
@@ -15,20 +15,12 @@
       <van-field
         v-model="password"
         type="password"
-        name="密码"
+        name="password"
         label="密码"
         placeholder="密码"
         :rules="[{ required: true, message: '请填写密码' }]"
       />
 
-      <van-field
-        v-model="password"
-        type="password"
-        name="确认密码"
-        label="确认密码"
-        placeholder="确认密码"
-        :rules="[{ required: true, message: '请填写密码' }]"
-      />
       <a
         href="javascript:;"
         style="margin-left:230px;text-decoration: underline;"
@@ -45,6 +37,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "",
   data() {
@@ -58,8 +52,26 @@ export default {
   created() {},
   mounted() {},
   methods: {
+    // 用户登录
     onSubmit(values) {
-      console.log("submit", values);
+      const { username, password } = values;
+      axios
+        .post("/api/v1/auth/login", {
+          userName: username,
+          password: password,
+        })
+        .then((res) => {
+          console.log(res);
+          // if (res.status == 200) {
+          //   setToken(res.data.token);
+          //   alert("注册成功");
+          //   this.$router.push({
+          //     path: "/login",
+          //   });
+          // } else {
+          //   alert("注册失败");
+          // }
+        });
     },
     goRegister() {
       this.$router.push("/register");
