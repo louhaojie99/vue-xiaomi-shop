@@ -13,7 +13,9 @@
       active-color="#ff6700"
       inactive-color="#999999"
     >
-      <van-tabbar-item to="/home" icon="wap-home">首页</van-tabbar-item>
+      <van-tabbar-item to="/home" icon="wap-home">
+        首页
+      </van-tabbar-item>
       <van-tabbar-item to="/classify" icon="search" dot>分类</van-tabbar-item>
       <van-tabbar-item to="/starball" icon="circle" badge="5"
         >星球</van-tabbar-item
@@ -32,7 +34,7 @@ export default {
   name: "FooterBar",
   data() {
     return {
-      active: 0,
+      active: 1,
     };
   },
   computed: {},
@@ -42,8 +44,4 @@ export default {
   methods: {},
 };
 </script>
-<style lang="scss" scoped>
-.bbb {
-  color: orange;
-}
-</style>
+<style lang="scss" scoped></style>

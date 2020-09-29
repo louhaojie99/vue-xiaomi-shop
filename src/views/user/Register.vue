@@ -36,12 +36,15 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "",
   data() {
     return {
       username: "",
       password: "",
+      ppp: "",
     };
   },
   computed: {},
@@ -49,11 +52,29 @@ export default {
   created() {},
   mounted() {},
   methods: {
+    // 账号注册提交
     onSubmit(values) {
-      console.log("submit", values);
+      // this.$http
+      //   .post("/api/v1/auth/reg", {
+      //     userName: this.username,
+      //     password: this.password,
+      //   })
+      //   .then((res) => {
+      //     console.log("执行了");
+      //     console.log(res);
+      //   });
+      axios
+        .post("/api/v1/auth/reg", {
+          userName: this.username,
+          password: this.password,
+        })
+        .then((res) => {
+          console.log("执行了");
+          console.log(res);
+        });
     },
     goLogin() {
-      this.$router.push("/login");
+      this.$router.push("/login", { params });
     },
   },
 };
