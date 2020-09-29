@@ -91,6 +91,161 @@
           </van-row>
           <div class="enter">进入手机频道 &gt;</div>
         </div>
+
+        <!--  -->
+        <div v-if="activeIndex === 2">
+          <van-image
+            src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2d1fb3b7db6722bb4cb638d8c6ebefa6.jpg?f=webp&w=750&h=300&bg=FFFFFF"
+          />
+          <h5>小米数字系列</h5>
+          <van-row>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+          </van-row>
+          <van-row>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+          </van-row>
+          <div class="enter">进入手机频道 &gt;</div>
+        </div>
+
+        <div v-if="activeIndex === 3">
+          <h5>小米数字系列</h5>
+          <van-row>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+          </van-row>
+          <van-row>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+          </van-row>
+          <div class="enter">进入手机频道 &gt;</div>
+        </div>
+
+        <div v-if="activeIndex === 4">
+          <h5>众筹好物</h5>
+          <van-row>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+          </van-row>
+          <van-row>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+          </van-row>
+          <van-row>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+          </van-row>
+          <van-row>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+            <van-col span="8">
+              <van-image
+                src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a47c566e14b2da1a6cc0780060a59d0.png?thumb=1&w=120&h=120"
+              />
+              <p>小米10至尊版</p>
+            </van-col>
+          </van-row>
+          <div class="enter">进入手机频道 &gt;</div>
+        </div>
       </template>
     </van-tree-select>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="search">
     <div>
-      <van-icon class="i" name="arrow-left" />
+      <van-icon class="i" name="arrow-left" @click="onClickLeft" />
     </div>
     <div>
       <input class="serach" type="search" placeholder="搜索商品名称" />
@@ -22,7 +22,11 @@ export default {
   components: {},
   created() {},
   mounted() {},
-  methods: {},
+  methods: {
+    onClickLeft() {
+      this.$router.push("/home");
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
