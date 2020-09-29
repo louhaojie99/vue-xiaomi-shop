@@ -38,7 +38,8 @@
 
 <script>
 import axios from "axios";
-
+import { setToken } from "../../utils/auth"; // auth验证token
+import { Toast } from "vant";
 export default {
   name: "",
   data() {
@@ -62,15 +63,15 @@ export default {
         })
         .then((res) => {
           console.log(res);
-          // if (res.status == 200) {
-          //   setToken(res.data.token);
-          //   alert("注册成功");
-          //   this.$router.push({
-          //     path: "/login",
-          //   });
-          // } else {
-          //   alert("注册失败");
-          // }
+          if (res.data.code == "success") {
+            Toast.success("登录成功");
+            setToken(res.data.token);
+            this.$router.push({
+              path: "/home",
+            });
+          } else {
+            Toast.fail(res.data.message);
+          }
         });
     },
     goRegister() {
