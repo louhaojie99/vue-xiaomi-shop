@@ -32,6 +32,13 @@ const routes = [
       },
     ],
   },
+  // 详情
+  {
+    path: "/detail",
+    name: "Detail",
+    component: () => import("../views/detail/index.vue"),
+  },
+
   // 分类
   {
     path: "/classify",

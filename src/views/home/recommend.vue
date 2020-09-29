@@ -115,7 +115,7 @@ export default {
     //
     goDetail(item) {
       console.log(item);
-      // this.$router.push({ name: "detail", query: item });
+      this.$router.push({ path: "/detail", query: item });
       /*  axios.get("/api/v1/products/:id").then((res) => {
         console.log(res);
       }); */
