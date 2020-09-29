@@ -73,66 +73,13 @@
         </div>
       </van-col>
     </van-row>
-    <!--  <van-row>
-      <van-col span="12">
-        <img
-          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/53e729d30746033a042d8ae9399553a7.jpg?thumb=1&w=344&h=280"
-          alt=""
-        />
-        <div class="txt">
-          <b>Redmi Note 8 Pro</b>
-          <p>6400万全场景四摄</p>
-          <p>￥1099起</p>
-          <van-button type="danger">立即购买</van-button>
-        </div>
-      </van-col>
-      <van-col span="12">
-        <img
-          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/8025107813883a20d3f2d956ad80ea38.jpg?thumb=1&w=344&h=280"
-          alt=""
-        />
-        <div class="txt">
-          <b>Redmi Note 8 Pro</b>
-          <p>6400万全场景四摄</p>
-          <p>￥1099起</p>
-          <van-button type="danger">立即购买</van-button>
-        </div>
-      </van-col>
-    </van-row>
-
-    <van-row>
-      <van-col span="12">
-        <img
-          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/53e729d30746033a042d8ae9399553a7.jpg?thumb=1&w=344&h=280"
-          alt=""
-        />
-        <div class="txt">
-          <b>Redmi Note 8 Pro</b>
-          <p>6400万全场景四摄</p>
-          <p>￥1099起</p>
-          <van-button type="danger">立即购买</van-button>
-        </div>
-      </van-col>
-      <van-col span="12">
-        <img
-          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/8025107813883a20d3f2d956ad80ea38.jpg?thumb=1&w=344&h=280"
-          alt=""
-        />
-        <div class="txt">
-          <b>Redmi Note 8 Pro</b>
-          <p>6400万全场景四摄</p>
-          <p>￥1099起</p>
-          <van-button type="danger">立即购买</van-button>
-        </div>
-      </van-col>
-    </van-row> -->
   </div>
 </template>
 
 <script>
 import Vue from "vue";
 import { Lazyload } from "vant";
-import axios from "axios";
+
 Vue.use(Lazyload);
 export default {
   name: "recommend",
@@ -151,17 +98,17 @@ export default {
   mounted() {},
   methods: {
     getBanner() {
-      axios.get("/banner").then((res) => {
-        // console.log(res);
-        //this.bannerlist = res.data;
+      this.$http.get("/banner").then((res) => {
+        console.log(res);
+        this.bannerlist = res;
         // console.log(bannerlist);
       });
     },
     // 获取商品
     getProduct() {
-      axios.get("/api/v1/products").then((res) => {
+      this.$http.get("/api/v1/products").then((res) => {
         // console.log(res);
-        this.productlist = res.data.products;
+        this.productlist = res.products;
         // console.log(this.productlist);
       });
     },
