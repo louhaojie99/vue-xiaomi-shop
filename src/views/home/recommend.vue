@@ -6,7 +6,7 @@
         <img class="bannerimg" v-lazy="list.imgurl" />
       </van-swipe-item>
     </van-swipe>
-    <!--  -->
+    <!-- 导航栏 -->
     <van-grid :column-num="5">
       <van-grid-item icon="hot-o" text="小米秒杀" />
       <van-grid-item icon="hot-o" text="小米众筹" />
@@ -27,13 +27,13 @@
           alt=""
         />
       </van-col>
-      <van-col span="11" offset="1">
+      <van-col span="12">
         <img
           src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/827a686678f39b1bbdc99c6e6b6a13c8.jpg?f=webp&w=537&h=378&bg=DAECFA"
           alt=""
         />
       </van-col>
-      <van-col span="11" offset="1">
+      <van-col span="12">
         <img
           src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/267e988a99b5cf4e960747e8aa5fa831.jpg?f=webp&w=537&h=378&bg=EDFBFC"
           alt=""
@@ -61,7 +61,7 @@
 
     <van-row>
       <van-col span="12" v-for="item in productlist" :key="item._id">
-        <img :src="item.coverImg" alt="" />
+        <img class="itemimg" :src="item.coverImg" alt="" />
         <div class="txt">
           <b>Redmi Note 8 Pro</b>
           <p>6400万全场景四摄</p>
@@ -73,6 +73,11 @@
         </div>
       </van-col>
     </van-row>
+
+    <!-- 指定按钮 -->
+    <div class="goTop" @click="goTop">
+      <van-icon name="back-top" />
+    </div>
   </div>
 </template>
 
@@ -120,6 +125,9 @@ export default {
         console.log(res);
       }); */
     },
+    goTop() {
+      console.log(1);
+    },
   },
 };
 </script>
@@ -133,5 +141,23 @@ img {
 }
 .txt {
   margin-left: 1.066667rem;
+}
+.itemimg {
+  width: 4.333333rem;
+  text-align: center;
+}
+.goTop {
+  width: 1rem;
+  height: 1rem;
+  background-color: #fdf2f2;
+  border: 0.0133rem solid #ccc;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1.1rem;
+  font-size: 0.5rem;
+  color: #867d7d;
+  position: fixed;
+  bottom: 2rem;
+  right: 1rem;
 }
 </style>

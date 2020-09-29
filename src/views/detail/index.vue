@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <!--  -->
+    <!-- 详情页 -->
     <van-nav-bar
       left-arrow
       @click-left="onClickLeft"
@@ -8,8 +8,7 @@
       class="cartnav"
     >
       <template #right class="bbb">
-        <van-cell is-link @click="show = true" />
-        <van-icon class="bbb" name="share-o" size="18" />
+        <van-icon class="bbb" name="share-o" size="18" @click="show = true" />
         <van-action-sheet
           v-model="show"
           :actions="actions"
@@ -23,9 +22,9 @@
     <p>￥{{ list.price }}</p>
 
     <van-goods-action>
-      <van-goods-action-icon icon="chat-o" text="客服" @click="onClickIcon" />
+      <van-goods-action-icon icon="smile-o" text="首页" @click="onClickIcon" />
+      <van-goods-action-icon icon="user-o" text="客服" @click="onClickIcon" />
       <van-goods-action-icon icon="cart-o" text="购物车" @click="onClickIcon" />
-      <van-goods-action-icon icon="shop-o" text="店铺" @click="onClickIcon" />
       <van-goods-action-button
         type="warning"
         text="加入购物车"
