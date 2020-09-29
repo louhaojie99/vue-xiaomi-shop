@@ -56,6 +56,7 @@ const routes = [
     name: "Mine",
     component: () => import("../views/mine/index.vue"),
   },
+
   // 登录
   {
     path: "/login",

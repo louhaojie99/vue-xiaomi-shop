@@ -2,8 +2,8 @@
   <div class="">
     <!-- 轮播 -->
     <van-swipe :autoplay="3000">
-      <van-swipe-item v-for="(image, index) in bannerlist" :key="index">
-        <img v-lazy="image" />
+      <van-swipe-item v-for="list in bannerlist" :key="list.id">
+        <img class="bannerimg" v-lazy="list.imgurl" />
       </van-swipe-item>
     </van-swipe>
     <!--  -->
@@ -145,28 +145,44 @@
 import Vue from "vue";
 import { Lazyload } from "vant";
 import axios from "axios";
-
 Vue.use(Lazyload);
 export default {
   name: "recommend",
   data() {
     return {
-      bannerlist: [
-        "//cdn.cnbj1.fds.api.mi-img.com/mi-mall/57d93d8554014e09ba15cc3c16e2d5e7.jpeg?thumb=1&w=720&h=360",
-        "//cdn.cnbj1.fds.api.mi-img.com/mi-mall/18690aba81e6c81705f2052480292efa.jpg?thumb=1&w=720&h=360",
-      ],
+      bannerlist: [],
     };
   },
   computed: {},
   components: {},
-  created() {},
+  created() {
+    this.getBanner();
+    // this.getProduct();
+  },
   mounted() {},
-  methods: {},
+  methods: {
+    getBanner() {
+      axios.get("/banner").then((res) => {
+        // console.log(res);
+        //this.bannerlist = res.data;
+        // console.log(bannerlist);
+      });
+    },
+    /* getProduct() {
+      axios.get("api/v1/admin/products").then((res) => {
+        console.log(res);
+      });
+    }, */
+  },
 };
 </script>
 <style lang="scss" scoped>
 img {
   width: 100%;
+}
+.bannerimg {
+  width: 100%;
+  height: 200px;
 }
 .txt {
   margin-left: 1.066667rem;
