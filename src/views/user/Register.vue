@@ -20,6 +20,14 @@
         placeholder="密码"
         :rules="[{ required: true, message: '请填写密码' }]"
       />
+      <van-field
+        v-model="nickname"
+        type="text"
+        name="昵称"
+        label="昵称"
+        placeholder="昵称"
+        :rules="[{ required: true, message: '请填写昵称' }]"
+      />
       <a
         href="javascript:;"
         style="margin-left:230px;text-decoration: underline;"
@@ -44,7 +52,7 @@ export default {
     return {
       username: "",
       password: "",
-      ppp: "",
+      nickname: "",
     };
   },
   computed: {},
@@ -59,10 +67,11 @@ export default {
         .post("/api/v1/auth/reg", {
           userName: this.username,
           password: this.password,
+          nickName: this.nickname,
         })
         .then((res) => {
           console.log(res);
-          if (res.status == 200) {
+          if (res.code == "success") {
             Toast.success("注册成功");
             this.$router.push({
               path: "/login",
