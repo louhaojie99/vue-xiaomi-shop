@@ -54,23 +54,21 @@ export default {
   methods: {
     // 账号注册提交
     onSubmit(values) {
-      // this.$http
-      axios
+      // axios
+      this.$http
         .post("/api/v1/auth/reg", {
           userName: this.username,
           password: this.password,
         })
         .then((res) => {
-          console.log(res.status);
+          console.log(res);
           if (res.status == 200) {
             Toast.success("注册成功");
-            // alert("注册成功");
             this.$router.push({
               path: "/login",
             });
           } else {
-            // alert("注册失败");
-            Toast.fail(result.message);
+            Toast.fail("注册失败");
           }
         });
     },

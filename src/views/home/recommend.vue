@@ -153,7 +153,7 @@ export default {
     getBanner() {
       axios.get("/banner").then((res) => {
         // console.log(res);
-        this.bannerlist = res.data;
+        //this.bannerlist = res.data;
         // console.log(bannerlist);
       });
     },
