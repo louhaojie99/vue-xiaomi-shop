@@ -55,16 +55,7 @@ export default {
     FooterBar,
   },
   created() {
-    // console.log("执行了");
-    // axios
-    //   .post("http://localhost:3009/api/v1/auth/reg", {
-    //     userName: "louhaojie99",
-    //     password: "1234567890",
-    //   })
-    //   .then((res) => {
-    //     console.log("执行了");
-    //     console.log(res);
-    //   });
+    // this.getUserInfo();
   },
 
   mounted() {},
@@ -81,6 +72,12 @@ export default {
       this.$router.push({
         path: "/register",
       });
+    },
+    // 用户信息
+    getUserInfo() {
+      // axios.get("/api/v1/users/info").then((res) => {
+      //   console.log(res);
+      // });
     },
   },
 };

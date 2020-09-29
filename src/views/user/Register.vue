@@ -75,7 +75,7 @@ export default {
         });
     },
     goLogin() {
-      this.$router.push("/login", { params });
+      this.$router.push("/login");
     },
   },
 };

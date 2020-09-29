@@ -15,7 +15,7 @@
       />
     </div>
     <div class="login">
-      <van-icon name="user-o" size="20px" @click="login" />
+      <van-icon name="user-o" size="20px" @click="isLogin" />
     </div>
     <!-- 导航 -->
     <NavBar></NavBar>
@@ -27,7 +27,7 @@
 <script>
 import FooterBar from "../../components/FooterBar";
 import NavBar from "../../components/NavBar";
-
+import { getToken } from "../../utils/auth";
 export default {
   name: "",
   data() {
@@ -46,8 +46,12 @@ export default {
     search() {
       this.$router.push("/search");
     },
-    login() {
-      this.$router.push("/login");
+    isLogin() {
+      if (getToken) {
+        this.$router.push("/mine");
+      } else {
+        this.$router.push("/login");
+      }
     },
   },
 };
