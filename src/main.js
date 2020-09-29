@@ -14,9 +14,6 @@ import "vant/lib/index.css";
 import request from "./utils/request";
 Vue.prototype.$http = request;
 
-import { Toast } from "vant";
-Vue.use(Toast);
-
 Vue.config.productionTip = false;
 Vue.use(Vant); // 全局使用Vant
 
