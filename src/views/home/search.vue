@@ -17,6 +17,20 @@
         <van-dropdown-item v-model="value2" :options="option2" />
       </van-dropdown-menu>
     </div>
+
+    <van-swipe-cell>
+      <van-card
+        num="2"
+        price="2.00"
+        desc="描述信息"
+        title="商品标题"
+        class="goods-card"
+        thumb="https://img.yzcdn.cn/vant/cat.jpeg"
+      />
+      <template #right>
+        <van-button square text="删除" type="danger" class="delete-button" />
+      </template>
+    </van-swipe-cell>
   </div>
 </template>
 
@@ -45,11 +59,18 @@ export default {
   },
   computed: {},
   components: {},
-  created() {},
+  created() {
+    this.getProducts();
+  },
   mounted() {},
   methods: {
     onClickLeft() {
       this.$router.push("/home");
+    },
+    getProducts() {
+      this.$http.get("/api/v1/products").then((res) => {
+        console.log(res);
+      });
     },
   },
 };
@@ -95,5 +116,13 @@ export default {
 img {
   width: 80%;
   border-radius: 0.266667rem;
+}
+.goods-card {
+  margin: 0;
+  background-color: #ffff;
+}
+
+.delete-button {
+  height: 100%;
 }
 </style>

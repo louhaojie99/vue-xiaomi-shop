@@ -85,5 +85,6 @@ export default {
     },
     // 点击加入购物车
   },
+};
 </script>
 <style lang="scss" scoped></style>
