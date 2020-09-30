@@ -17,10 +17,15 @@
       </template>
     </van-nav-bar>
 
-    <van-image width="375" height="410" :src="list.coverImg" />
-    <p>{{ list.name }}</p>
-    <p>￥{{ list.price }}</p>
+    <!-- 商品信息 -->
+    <!-- {{ product }} -->
+    <div v-for="item in product" :key="item._id">
+      <van-image width="375" height="410" :src="item.coverImg" />
+      <p>{{ item.name }}</p>
+      <p>￥{{ item.price }}</p>
+    </div>
 
+    <!-- 底部 -->
     <van-goods-action>
       <van-goods-action-icon icon="smile-o" text="首页" @click="onClickIcon" />
       <van-goods-action-icon icon="user-o" text="客服" @click="onClickIcon" />
@@ -43,13 +48,13 @@ export default {
       list: [],
       show: false,
       actions: [{ name: "分享" }, { name: "分享到微博" }, { name: "取消" }],
+      product: [], // 商品信息
     };
   },
   computed: {},
   components: {},
   created() {
-    this.list = this.$route.query;
-    console.log(this.list);
+    this.byIdGetProInfo(); // 根据id获取商品详情
   },
   mounted() {},
   methods: {
@@ -71,7 +76,14 @@ export default {
     onClickButton() {
       Toast("点击按钮");
     },
+    // 根据 id 获取商品详情
+    async byIdGetProInfo() {
+      const id = this.$route.query.id; // 商品id
+      const productInfo = await this.$http.get(`/api/v1/products/${id}`);
+      console.table(productInfo);
+      this.product.push(productInfo);
+    },
+    // 点击加入购物车
   },
-};
 </script>
 <style lang="scss" scoped></style>

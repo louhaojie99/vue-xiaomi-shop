@@ -158,7 +158,7 @@
       </van-tab>
     </van-tabs>
     <!-- 置顶按钮 -->
-    <div class="goTop" @click="goTop">
+    <div class="goTop" @click="goTop" v-show="isgoTopShow">
       <van-icon name="back-top" />
     </div>
     <!-- 页脚 -->
@@ -192,8 +192,10 @@ export default {
       value: "",
       bannerlist: [],
       productlist: [],
+      isgoTopShow: true, // 置顶按钮默认不显示
     };
   },
+  watch: {},
   computed: {},
   components: {
     FooterBar,
@@ -217,9 +219,8 @@ export default {
     },
     getBanner() {
       this.$http.get("/banner").then((res) => {
-        console.log(res);
+        // console.log(res);
         this.bannerlist = res;
-        // console.log(bannerlist);
       });
     },
     // 获取商品
@@ -227,26 +228,22 @@ export default {
       this.$http.get("/api/v1/products").then((res) => {
         // console.log(res);
         this.productlist = res.products;
-        // console.log(this.productlist);
       });
     },
     //
     goDetail(item) {
-      console.log(item);
-      this.$router.push({ path: "/detail", query: item });
-      /*  axios.get("/api/v1/products/:id").then((res) => {
-        console.log(res);
-      }); */
+      // console.log("item", item._id);
+      this.$router.push({
+        path: "/detail",
+        query: {
+          id: item._id,
+        },
+      });
     },
     goTop() {
-      console.log(1);
-    },
-    // -------
-    onClickLeft() {
-      Toast("返回");
-    },
-    onClickRight() {
-      Toast("按钮");
+      if (document.documentElement.scrollTop > 200) {
+        document.documentElement.scrollTop = 0;
+      }
     },
   },
 };
@@ -322,7 +319,7 @@ img {
   font-size: 0.5rem;
   color: #867d7d;
   position: fixed;
-  bottom: 2rem;
-  right: 0.5rem;
+  bottom: 1.8rem;
+  right: 0.4rem;
 }
 </style>
