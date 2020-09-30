@@ -1,35 +1,38 @@
 <template>
   <div id="search">
-    <div class="search">
-      <div>
-        <van-icon class="i" name="arrow-left" @click="onClickLeft" />
+    <van-sticky>
+      <div class="search">
+        <div>
+          <van-icon class="i" name="arrow-left" @click="onClickLeft" />
+        </div>
+        <div>
+          <input
+            class="serach"
+            type="search"
+            placeholder="搜索商品名称"
+            v-model="keywords"
+          />
+        </div>
+        <div>
+          <van-icon class="i" name="search" />
+        </div>
       </div>
-      <div>
-        <input class="serach" type="search" placeholder="搜索商品名称" />
-      </div>
-      <div>
-        <van-icon class="i" name="search" />
-      </div>
-    </div>
-    <div>
-      <van-dropdown-menu>
-        <van-dropdown-item v-model="value1" :options="option1" />
-        <van-dropdown-item v-model="value2" :options="option2" />
-      </van-dropdown-menu>
-    </div>
 
-    <van-swipe-cell>
+      <div class="menu">
+        <van-dropdown-menu>
+          <van-dropdown-item v-model="value1" :options="option1" />
+          <van-dropdown-item v-model="value2" :options="option2" />
+        </van-dropdown-menu>
+      </div>
+    </van-sticky>
+    <van-swipe-cell v-for="item in listFilter" :key="item._id">
       <van-card
-        num="2"
-        price="2.00"
-        desc="描述信息"
+        :price="item.price"
+        :desc="item.descriptions"
         title="商品标题"
         class="goods-card"
-        thumb="https://img.yzcdn.cn/vant/cat.jpeg"
+        :thumb="item.coverImg"
       />
-      <template #right>
-        <van-button square text="删除" type="danger" class="delete-button" />
-      </template>
     </van-swipe-cell>
   </div>
 </template>
@@ -39,6 +42,7 @@ export default {
   name: "search",
   data() {
     return {
+      keywords: "",
       value1: 0,
       value2: "a",
       option1: [
@@ -55,9 +59,14 @@ export default {
         { text: "价格排序", value: "d" },
         { text: "城市搜索", value: "e" },
       ],
+      list: [],
     };
   },
-  computed: {},
+  computed: {
+    listFilter() {
+      return this.list.filter((item) => item.name.includes(this.keywords));
+    },
+  },
   components: {},
   created() {
     this.getProducts();
@@ -69,7 +78,8 @@ export default {
     },
     getProducts() {
       this.$http.get("/api/v1/products").then((res) => {
-        console.log(res);
+        console.log(res.products);
+        this.list = res.products;
       });
     },
   },
@@ -124,5 +134,11 @@ img {
 
 .delete-button {
   height: 100%;
+}
+</style>
+
+<style>
+.van-dropdown-menu__bar {
+  background: #f2f2f2 !important;
 }
 </style>

@@ -24,7 +24,7 @@ new Vue({
 }).$mount("#app");
 
 // 路由导航守卫
-router.beforeEach((to, from, next) => {
+/* router.beforeEach((to, from, next) => {
   if (getToken()) {
     next();
   } else {
@@ -36,4 +36,4 @@ router.beforeEach((to, from, next) => {
       next("/login");
     }
   }
-});
+}); */

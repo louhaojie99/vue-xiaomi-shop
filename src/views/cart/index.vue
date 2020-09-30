@@ -24,69 +24,42 @@
         is-link
         value="去登陆"
         @click="goLogin"
+        v-show="product == ''"
       />
-      <!-- 商品列表 -->
-      <div class="cartprolist">
-        <div class="item">
-          <div class="chckbox">
-            <input type="checkbox" />
-          </div>
-          <div class="proimg">
-            <img
-              src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1597145894.51396359.jpg"
-              alt=""
-            />
-          </div>
-          <div class="proinfo">
-            <div>
-              <div class="name">小米10至尊纪念版 8GB+256GB 陶瓷黑</div>
-              <div class="price">售价：5599元</div>
-            </div>
-            <div>
-              <input type="button" value="-" />
-              <span class="pricee">1</span>
-              <input type="button" value="+" />
-            </div>
-          </div>
-          <div class="del">
-            <button>删除</button>
-          </div>
-        </div>
-        <div class="item">
-          <div class="chckbox">
-            <input type="checkbox" />
-          </div>
-          <div class="proimg">
-            <img
-              src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1597145894.51396359.jpg"
-              alt=""
-            />
-          </div>
-          <div class="proinfo">
-            <div>
-              <div class="name">小米10至尊纪念版 8GB+256GB 陶瓷黑</div>
-              <div class="price">售价：5599元</div>
-            </div>
-            <div>
-              <input type="button" value="-" />
-              <span class="pricee">1</span>
-              <input type="button" value="+" />
-            </div>
-          </div>
-          <div class="del">
-            <button>删除</button>
-          </div>
-        </div>
-      </div>
       <!-- end -->
-      <div class="cart-bom">
+      <div class="cart-bom" v-show="product == ''">
         <van-icon class="i" name="cart-o" />
         <span class="span">购物车还是空的</span>
         <em class="em" @click="goProList">去逛逛</em>
       </div>
+      <!-- 商品列表 -->
+      <div class="cartprolist">
+        <div class="item" v-for="item in product" :key="item._id">
+          <div class="chckbox">
+            <input type="checkbox" />
+          </div>
+          <div class="proimg">
+            <img :src="item.product.coverImg" alt="" />
+          </div>
+          <div class="proinfo">
+            <div>
+              <div class="name">{{ item.product.name }}</div>
+              <div class="price">售价：{{ item.product.price }}元</div>
+            </div>
+            <div>
+              <input type="button" value="-" />
+              <span class="pricee">1</span>
+              <input type="button" value="+" />
+            </div>
+          </div>
+          <div class="del">
+            <button @click="del(item._id)">删除</button>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- CartBar -->
-    <div class="cartbar">
+    <div class="cartbar" v-show="product != ''">
       <div class="d1">
         <div>共1件 <span style="font-weight: bold;">金额：</span></div>
         <div>
@@ -102,7 +75,7 @@
       </div>
     </div>
     <!-- 页脚 -->
-    <!-- <FooterBar></FooterBar> -->
+    <FooterBar v-show="product == ''"></FooterBar>
   </div>
 </template>
 
@@ -112,7 +85,9 @@ import FooterBar from "../../components/FooterBar";
 export default {
   name: "",
   data() {
-    return {};
+    return {
+      product: "",
+    };
   },
   computed: {},
   components: {
@@ -143,6 +118,15 @@ export default {
     getUserCartInfo() {
       this.$http.get("/api/v1/shop_carts").then((res) => {
         console.log(res);
+        this.product = res;
+      });
+    },
+    //删除
+    del(id) {
+      console.log(id);
+      this.$http.delete("/api/v1/shop_carts/" + id).then((res) => {
+        console.log(res);
+        this.getUserCartInfo();
       });
     },
   },

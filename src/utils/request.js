@@ -39,8 +39,8 @@ service.interceptors.response.use(
   function(error) {
     // 当服务器返回401状态码的时候 跳转到登录页
     if (error && error.response && error.response.status === 401) {
-      // Toast.fail("登录信息失效，请重新登录");
-      console.log("登录信息失效，请重新登录");
+      Toast.fail("登录信息失效，请重新登录");
+      // console.log("登录信息失效，请重新登录");
       setTimeout(() => {
         window.location.href = "/login";
       }, 2000);
