@@ -29,7 +29,7 @@
     <van-goods-action>
       <van-goods-action-icon icon="smile-o" text="首页" @click="onClickIcon" />
       <van-goods-action-icon icon="user-o" text="客服" @click="onClickIcon" />
-      <van-goods-action-icon icon="cart-o" text="购物车" @click="onClickIcon" />
+      <van-goods-action-icon icon="cart-o" text="购物车" @click="goCart" />
       <van-goods-action-button
         type="warning"
         text="加入购物车"
@@ -73,17 +73,49 @@ export default {
     onClickIcon() {
       Toast("点击图标");
     },
+    // 加入购物车
     onClickButton() {
-      Toast("点击按钮");
+      // const id = this.$route.query.id; // 商品id
+      // console.log(id);
+      // this.$http
+      //   .post("/api/v1/shop_carts", {
+      //     id,
+      //     quantity: 1, // 加入数量默认值为1
+      //   })
+      //   .then((res) => {
+      //     // console.log(res);
+      //     if (res.code == "success") {
+      //       Toast.success(res.message);
+      //     }
+      //   });
     },
     // 根据 id 获取商品详情
     async byIdGetProInfo() {
       const id = this.$route.query.id; // 商品id
       const productInfo = await this.$http.get(`/api/v1/products/${id}`);
-      console.table(productInfo);
+      // console.table(productInfo);
       this.product.push(productInfo);
     },
     // 点击加入购物车
+    onClickButton() {
+      const id = this.$route.query.id; // 商品id
+      this.$http
+        .post("/api/v1/shop_carts", {
+          product: id,
+          quantity: 1,
+        })
+        .then((res) => {
+          if (res.code == "success") {
+            Toast.success(res.message);
+          }
+        });
+    },
+    // 点击去购物车
+    goCart() {
+      this.$router.push({
+        path: "/cart",
+      });
+    },
   },
 };
 </script>
