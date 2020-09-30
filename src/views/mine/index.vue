@@ -5,7 +5,7 @@
       <header class="header">
         <div class="user-center">
           <div class="logo" @click="changeUser">
-            <img src="/images/avatar.76a.png" alt="" />
+            <img :src="avatar" alt="" />
           </div>
           <div class="login">
             <div v-if="isShow">
@@ -104,12 +104,11 @@ export default {
       });
     },
     // 获取用户信息
-    getUserInfo() {
-      this.$http.get("/api/v1/users/info").then((res) => {
-        // console.log(res);
-        this.nickName = res.nickName;
-        // console.log(res.nickName);
-      });
+
+    async getUserInfo() {
+      var res = await this.$http.get("/api/v1/users/info");
+      this.nickName = res.nickName;
+      this.avatar = res.avatar;
     },
     // 修改用户信息
     changeUser() {

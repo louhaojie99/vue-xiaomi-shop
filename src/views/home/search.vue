@@ -12,7 +12,6 @@
       </div>
     </div>
     <div>
-      <h6>搜索发现</h6>
       <van-dropdown-menu>
         <van-dropdown-item v-model="value1" :options="option1" />
         <van-dropdown-item v-model="value2" :options="option2" />
