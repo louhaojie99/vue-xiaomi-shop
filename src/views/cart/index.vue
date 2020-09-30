@@ -118,7 +118,9 @@ export default {
   components: {
     FooterBar,
   },
-  created() {},
+  created() {
+    this.getUserCartInfo(); // 获取用户购物车数据
+  },
   mounted() {},
   methods: {
     onClickLeft() {
@@ -135,6 +137,12 @@ export default {
     goProList() {
       this.$router.push({
         path: "/home",
+      });
+    },
+    // 获取用户购物车数据
+    getUserCartInfo() {
+      this.$http.get("/api/v1/shop_carts").then((res) => {
+        console.log(res);
       });
     },
   },
