@@ -31,36 +31,58 @@
           <div class="menu">
             <van-row type="flex" justify="space-around">
               <van-col>
-                <img src="/images/ge01.png" alt="" />
+                <a href="https://m.mi.com/seckill">
+                  <img src="/images/ge01.png" alt="" />
+                </a>
               </van-col>
               <van-col>
-                <img src="/images/ge02.png" alt="" />
+                <a href="https://m.mi.com/crowdfunding/home">
+                  <img src="/images/ge02.png" alt="" />
+                </a>
               </van-col>
               <van-col>
-                <img src="/images/ge03.png" alt="" />
+                <a href="https://s1.mi.com/m/app/hd/index.html?id=15325">
+                  <img src="/images/ge03.png" alt="" />
+                </a>
               </van-col>
               <van-col>
-                <img src="/images/ge04.png" alt="" />
+                <a
+                  href="https://m.mi.com/recycling/index?headless=1&needValidHost=false"
+                >
+                  <img src="/images/ge04.png" alt="" />
+                </a>
               </van-col>
               <van-col>
-                <img src="/images/ge05.png" alt="" />
+                <a href="https://s1.mi.com/m/app/hd/index.html?id=11366">
+                  <img src="/images/ge05.png" alt="" />
+                </a>
               </van-col>
             </van-row>
             <van-row type="flex" justify="space-around">
               <van-col>
-                <img src="/images/ge06.png" alt="" />
+                <a href="https://m.mi.com/channel/all/14709">
+                  <img src="/images/ge06.png" alt="" />
+                </a>
               </van-col>
               <van-col>
-                <img src="/images/ge07.png" alt="" />
+                <a href="https://m.mi.com/channel/all/13326">
+                  <img src="/images/ge07.png" alt="" />
+                </a>
               </van-col>
               <van-col>
-                <img src="/images/ge08.png" alt="" />
+                <a href="https://m.mi.com/channel/all/13249">
+                  <img src="/images/ge08.png" alt="" />
+                </a>
               </van-col>
               <van-col>
-                <img src="/images/ge09.png" alt="" />
+                <a href="https://m.mi.com/channel/all/13365">
+                  <img src="/images/ge09.png" alt="" />
+                </a>
               </van-col>
               <van-col>
-                <img src="/images/ge10.png" alt="" />
+                <a href="https://service.10046.mi.com/channel/">
+                  <img src="/images/ge10.png" alt="" />
+                </a>
               </van-col>
             </van-row>
           </div>
@@ -120,7 +142,9 @@
           </van-row>
         </div>
         <!-- 手机 -->
-        <div v-show="item == '手机'">0000000000</div>
+        <div v-show="item == '手机'">
+          000000000
+        </div>
         <!-- 智能 -->
         <div v-show="item == '智能'">11111111</div>
         <!-- 电视 -->
