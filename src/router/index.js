@@ -7,6 +7,7 @@ const routes = [
     path: "/",
     redirect: "/home",
   },
+  // 搜索
   {
     path: "/search",
     name: "Search",
@@ -18,19 +19,6 @@ const routes = [
     path: "/home",
     name: "Home",
     component: () => import("../views/home/index.vue"),
-    redirect: "/home/recommend",
-    children: [
-      {
-        path: "recommend",
-        name: "Recommend",
-        component: () => import("../views/home/recommend.vue"),
-      },
-      {
-        path: "phone",
-        name: "Phone",
-        component: () => import("../views/home/phone.vue"),
-      },
-    ],
   },
   // 详情
   {

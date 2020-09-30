@@ -13,17 +13,19 @@
       active-color="#ff6700"
       inactive-color="#999999"
     >
-      <van-tabbar-item to="/home" icon="wap-home">
+      <van-tabbar-item to="/home" replace icon="wap-home">
         首页
       </van-tabbar-item>
-      <van-tabbar-item to="/classify" icon="search" dot>分类</van-tabbar-item>
-      <van-tabbar-item to="/starball" icon="circle" badge="5"
+      <van-tabbar-item to="/classify" replace icon="search" dot
+        >分类</van-tabbar-item
+      >
+      <van-tabbar-item to="/starball" replace icon="circle" badge="5"
         >星球</van-tabbar-item
       >
-      <van-tabbar-item to="/cart" icon="shopping-cart-o" badge="20"
+      <van-tabbar-item to="/cart" replace icon="shopping-cart-o" badge="20"
         >购物车</van-tabbar-item
       >
-      <van-tabbar-item to="/mine" icon="user-o">我的</van-tabbar-item>
+      <van-tabbar-item to="/mine" replace icon="user-o">我的</van-tabbar-item>
     </van-tabbar>
     <router-view></router-view>
   </div>
