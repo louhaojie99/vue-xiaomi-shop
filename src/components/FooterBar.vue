@@ -16,13 +16,13 @@
       <van-tabbar-item to="/home" replace icon="wap-home">
         首页
       </van-tabbar-item>
-      <van-tabbar-item to="/classify" replace icon="search" dot
+      <van-tabbar-item to="/classify" replace icon="search"
         >分类</van-tabbar-item
       >
-      <van-tabbar-item to="/starball" replace icon="circle" badge="5"
+      <van-tabbar-item to="/starball" replace icon="circle" badge=""
         >星球</van-tabbar-item
       >
-      <van-tabbar-item to="/cart" replace icon="shopping-cart-o" badge="20"
+      <van-tabbar-item to="/cart" replace icon="shopping-cart-o" badge=""
         >购物车</van-tabbar-item
       >
       <van-tabbar-item to="/mine" replace icon="user-o">我的</van-tabbar-item>

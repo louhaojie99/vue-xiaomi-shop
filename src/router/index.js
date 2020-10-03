@@ -76,6 +76,12 @@ const routes = [
     name: "Changeuser",
     component: () => import("../views/user/Changeuser.vue"),
   },
+  // 订单结算
+  {
+    path: "/order",
+    name: "Order",
+    component: () => import("../views/user/Order.vue"),
+  },
 ];
 
 const router = new VueRouter({

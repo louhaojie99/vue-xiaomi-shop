@@ -70,7 +70,7 @@
       <div class="d2">
         继续购物
       </div>
-      <div class="d3">
+      <div class="d3" @click="goOrder">
         去结算
       </div>
     </div>
@@ -127,6 +127,10 @@ export default {
         console.log(res);
         this.getUserCartInfo();
       });
+    },
+    // 提交顶单
+    goOrder() {
+      this.$router.push("/order");
     },
   },
 };
