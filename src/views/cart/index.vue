@@ -81,7 +81,6 @@
 
 <script>
 import FooterBar from "../../components/FooterBar";
-
 export default {
   name: "",
   data() {
@@ -166,17 +165,14 @@ export default {
     }
   }
 }
-
 // 商品列表样式
 .cartprolist {
   min-height: 3.146667rem;
-
   overflow: hidden;
   .item {
     display: flex;
     position: relative;
     align-items: center;
-
     border: 1px solid #f1f1f1;
     .chckbox {
       width: 0.84rem;
@@ -218,6 +214,7 @@ export default {
     height: 1.386667rem;
     text-align: center;
     line-height: 0.7rem;
+    background: #ffffff;
   }
   .d2 {
     height: 1.386667rem;

@@ -135,15 +135,25 @@
             </van-col>
           </van-row>
 
+          <!-- 居中 -->
           <van-row>
-            <van-col span="12" v-for="item in productlist" :key="item._id">
-              <img class="itemimg" :src="item.coverImg" alt="" />
-              <div class="txt">
-                <b>Redmi Note 8 Pro</b>
-                <p>6400万全场景四摄</p>
-                <!-- <p>{{ item.name }}</p> -->
-                <p>￥{{ item.price }}起</p>
-                <van-button type="danger" @click="goDetail(item)"
+            <van-col
+              class="proItem"
+              span="12"
+              v-for="item in productlist"
+              :key="item._id"
+            >
+              <div class="proImg">
+                <img :src="item.coverImg" alt="" />
+              </div>
+              <div class="proInfo">
+                <h3>新品首发</h3>
+                <span>6400万全场景四摄</span>
+                <span>￥{{ item.price }}起</span>
+                <van-button
+                  class="button"
+                  type="warning"
+                  @click="goDetail(item)"
                   >立即购买</van-button
                 >
               </div>
@@ -151,9 +161,7 @@
           </van-row>
         </div>
         <!-- 手机 -->
-        <div v-show="item == '手机'">
-          000000000
-        </div>
+        <div v-show="item == '手机'">000000000</div>
         <!-- 智能 -->
         <div v-show="item == '智能'">11111111</div>
         <!-- 电视 -->
@@ -205,6 +213,7 @@ export default {
     };
   },
   watch: {},
+  filters: {},
   computed: {},
   components: {
     FooterBar,
@@ -235,7 +244,7 @@ export default {
     // 获取商品
     getProduct() {
       this.$http.get("/api/v1/products").then((res) => {
-        // console.log(res);
+        console.log(res);
         this.productlist = res.products;
       });
     },
@@ -330,5 +339,45 @@ img {
   position: fixed;
   bottom: 1.8rem;
   right: 0.4rem;
+}
+.proItem {
+  // border: 1px solid red;
+}
+.proImg {
+  display: flex;
+  justify-content: center;
+  background-color: #f1f1f1;
+  margin: 0.1rem;
+  padding: 0.2rem 0;
+  img {
+    display: block;
+    width: 3rem;
+    height: 3.2rem;
+  }
+}
+.proInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h3 {
+    font-size: 0.32rem;
+    font-weight: normal;
+    line-height: 0;
+    text-align: center;
+  }
+  span {
+    display: block;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .button {
+    width: 2.5rem;
+    height: 0.8rem;
+    display: block;
+    background-color: #e2625b;
+    color: #fff;
+    border-radius: 0.1rem;
+    margin: 0 auto;
+  }
 }
 </style>
