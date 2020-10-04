@@ -61,18 +61,14 @@
     <!-- CartBar -->
     <div class="cartbar" v-show="product != ''">
       <div class="d1">
-        <div>共1件 <span style="font-weight: bold;">金额：</span></div>
+        <div>共1件 <span style="font-weight: bold">金额：</span></div>
         <div>
-          <span style="color:#ff6700;font-weight: bold;">3799</span>
+          <span style="color: #ff6700; font-weight: bold">3799</span>
           元
         </div>
       </div>
-      <div class="d2">
-        继续购物
-      </div>
-      <div class="d3" @click="goOrder">
-        去结算
-      </div>
+      <div class="d2">继续购物</div>
+      <div class="d3" @click="goOrder">去结算</div>
     </div>
     <!-- 页脚 -->
     <FooterBar v-show="product == ''"></FooterBar>
