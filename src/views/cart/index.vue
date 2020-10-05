@@ -78,7 +78,7 @@
 <script>
 import FooterBar from "../../components/FooterBar";
 export default {
-  name: "",
+  name: "Cart",
   data() {
     return {
       product: "",

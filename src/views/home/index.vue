@@ -193,7 +193,7 @@ import Vue from "vue";
 Vue.use(Lazyload);
 
 export default {
-  name: "",
+  name: "Home",
   data() {
     return {
       active: 0, // 默认导航选中第一个

@@ -80,7 +80,7 @@
 
 <script>
 export default {
-  name: "phone",
+  name: "Phone",
   data() {
     return {
       bannerimg: [

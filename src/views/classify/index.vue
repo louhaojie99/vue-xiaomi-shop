@@ -258,7 +258,7 @@
 import FooterBar from "../../components/FooterBar";
 
 export default {
-  name: "classify",
+  name: "Classify",
   data() {
     return {
       activeId: 1,
