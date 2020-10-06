@@ -33,12 +33,6 @@ const routes = [
     name: "Classify",
     component: () => import("../views/classify/index.vue"),
   },
-  // 星球
-  {
-    path: "/starball",
-    name: "Starball",
-    component: () => import("../views/starball/index.vue"),
-  },
   // 购物车
   {
     path: "/cart",

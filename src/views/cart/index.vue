@@ -63,13 +63,14 @@
       <div class="d1">
         <div>共1件 <span style="font-weight: bold">金额：</span></div>
         <div>
-          <span style="color: #ff6700; font-weight: bold">3799</span>
+          <span style="color: #ff6700; font-weight: bold">{{ sunPrice }}</span>
           元
         </div>
       </div>
       <div class="d2">继续购物</div>
       <div class="d3" @click="goOrder">去结算</div>
     </div>
+
     <!-- 页脚 -->
     <FooterBar v-show="product == ''"></FooterBar>
   </div>
@@ -84,7 +85,16 @@ export default {
       product: "",
     };
   },
-  computed: {},
+  computed: {
+    sunPrice() {
+      /*
+        reduce 聚合运算（把所有的数据做一个处理之后生成一个计算结果）
+                第一个参数是一个回调函数
+                第二个参数是一个初始值
+      */
+      return 0;
+    },
+  },
   components: {
     FooterBar,
   },
