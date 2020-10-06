@@ -72,7 +72,7 @@
       <div class="d2" @click="goBuy">
         继续购物
       </div>
-      <div class="d3">
+      <div class="d3" @click="onSubmit">
         去结算
       </div>
     </div>
@@ -83,7 +83,8 @@
 
 <script>
 import FooterBar from "../../components/FooterBar";
-
+import { getToken } from "../../utils/auth";
+import { Toast } from "vant";
 export default {
   name: "",
   data() {
@@ -147,6 +148,29 @@ export default {
     //
     goBuy() {
       this.$router.push("/home");
+    },
+    // 去结算
+    onSubmit() {
+      if (getToken()) {
+        // console.log(this.product);
+        let result = this.product.every((v) => {
+          return v.checked == false;
+        });
+        // console.log(result);
+        if (result) {
+          Toast("您什么商品都没有勾选！");
+        } else {
+          let arr = this.product.filter((v) => {
+            return v.checked == true;
+          });
+          // this.$eventBus.$emit("dingdan", arr);
+          this.$router.push({
+            name: "Order",
+            query: arr,
+          });
+          console.log(arr);
+        }
+      }
     },
   },
 };
