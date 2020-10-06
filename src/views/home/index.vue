@@ -178,6 +178,7 @@
     <div class="goTop" @click="goTop" v-show="isgoTopShow">
       <van-icon name="back-top" />
     </div>
+    {{ getScorll }}
     <!-- 页脚 -->
     <FooterBar></FooterBar>
   </div>
@@ -214,7 +215,20 @@ export default {
   },
   watch: {},
   filters: {},
-  computed: {},
+  computed: {
+    getScorll() {
+      window.onscroll = function() {
+        var scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        var goTop = document.querySelector(".goTop");
+        if (scrollTop > 200) {
+          goTop.style.display = "block";
+        } else {
+          goTop.style.display = "none";
+        }
+      };
+    },
+  },
   components: {
     FooterBar,
     NavBar,
@@ -339,6 +353,7 @@ img {
   position: fixed;
   bottom: 1.8rem;
   right: 0.4rem;
+  display: none;
 }
 .proItem {
   // border: 1px solid red;
