@@ -36,7 +36,7 @@
       <div class="cartprolist">
         <div class="item" v-for="item in product" :key="item._id">
           <div class="chckbox">
-            <input type="checkbox" />
+            <input type="checkbox" v-model="item.checked" />
           </div>
           <div class="proimg">
             <img :src="item.product.coverImg" alt="" />
@@ -61,16 +61,21 @@
     <!-- CartBar -->
     <div class="cartbar" v-show="product != ''">
       <div class="d1">
-        <div>共1件 <span style="font-weight: bold">金额：</span></div>
         <div>
-          <span style="color: #ff6700; font-weight: bold">{{ sunPrice }}</span>
+          共{{ count }}件 <span style="font-weight: bold;">金额：</span>
+        </div>
+        <div>
+          <span style="color:#ff6700;font-weight: bold;">{{ sumPrices }}</span>
           元
         </div>
       </div>
-      <div class="d2">继续购物</div>
-      <div class="d3" @click="goOrder">去结算</div>
+      <div class="d2" @click="goBuy">
+        继续购物
+      </div>
+      <div class="d3">
+        去结算
+      </div>
     </div>
-
     <!-- 页脚 -->
     <FooterBar v-show="product == ''"></FooterBar>
   </div>
@@ -78,21 +83,24 @@
 
 <script>
 import FooterBar from "../../components/FooterBar";
+
 export default {
-  name: "Cart",
+  name: "",
   data() {
     return {
-      product: "",
+      product: [],
     };
   },
   computed: {
-    sunPrice() {
-      /*
-        reduce 聚合运算（把所有的数据做一个处理之后生成一个计算结果）
-                第一个参数是一个回调函数
-                第二个参数是一个初始值
-      */
-      return 0;
+    sumPrices() {
+      return this.product
+        .filter((item) => item.checked)
+        .reduce((pre, cur) => {
+          return pre + cur.product.price * cur.amount;
+        }, 0);
+    },
+    count() {
+      return this.product.filter((item) => item.checked).length;
     },
   },
   components: {
@@ -110,7 +118,6 @@ export default {
       this.$router.push("/search");
     },
     goLogin() {
-      console.log(1);
       this.$router.push("/login");
     },
     // 点击去逛逛跳转到首页
@@ -122,21 +129,24 @@ export default {
     // 获取用户购物车数据
     getUserCartInfo() {
       this.$http.get("/api/v1/shop_carts").then((res) => {
-        console.log(res);
-        this.product = res;
+        // this.product = res;
+        this.product = res.map((v) => {
+          return { ...v, checked: false, amount: 1 };
+        });
+        console.log(this.product);
       });
     },
     //删除
     del(id) {
-      console.log(id);
+      // console.log(id);
       this.$http.delete("/api/v1/shop_carts/" + id).then((res) => {
-        console.log(res);
+        // console.log(res);
         this.getUserCartInfo();
       });
     },
-    // 提交顶单
-    goOrder() {
-      this.$router.push("/order");
+    //
+    goBuy() {
+      this.$router.push("/home");
     },
   },
 };
@@ -175,14 +185,17 @@ export default {
     }
   }
 }
+
 // 商品列表样式
 .cartprolist {
   min-height: 3.146667rem;
+
   overflow: hidden;
   .item {
     display: flex;
     position: relative;
     align-items: center;
+
     border: 1px solid #f1f1f1;
     .chckbox {
       width: 0.84rem;
@@ -224,7 +237,6 @@ export default {
     height: 1.386667rem;
     text-align: center;
     line-height: 0.7rem;
-    background: #ffffff;
   }
   .d2 {
     height: 1.386667rem;
